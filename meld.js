@@ -129,11 +129,11 @@ define(function () {
 				try {
 					joinpoint.result = advisor._callAroundAdvice(context, func, args, callOrigAndOn);
 				} catch(e) {
-                    // If raven-js is installed capture exception with full
-                    // stack into Sentry.
-                    if (window.Raven !== undefined) {
-                        window.Raven.captureException(e);
-                    }
+					// If raven-js is installed capture exception with full
+					// stack into Sentry.
+					if (window.Raven !== undefined) {
+						window.Raven.captureException(e);
+					}
 					joinpoint.result = joinpoint.exception = e;
 					// Switch to afterThrowing
 					afterType = 'afterThrowing';
